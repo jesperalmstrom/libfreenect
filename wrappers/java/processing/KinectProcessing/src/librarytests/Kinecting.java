@@ -1,9 +1,8 @@
 package librarytests;
 
+import org.openkinect.processing.Kinect;
 
 import processing.core.PApplet;
-import processing.kinect.Kinect;
-
 
 public class Kinecting extends PApplet {
 
@@ -24,7 +23,6 @@ public class Kinecting extends PApplet {
 		fill(255);
 		text("RGB FPS: " + kinect.getRGBFPS(),10,495);
 		text("DEPTH FPS: " + kinect.getDepthFPS(),640,495);
-
 		text("Press 'd' to enable/disable depth    Press 'r' to enable/disable rgb image    Framerate: " + frameRate,10,515);
 	}
 
