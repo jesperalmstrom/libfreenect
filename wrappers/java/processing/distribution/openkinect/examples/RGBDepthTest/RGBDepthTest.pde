@@ -2,13 +2,15 @@ import org.openkinect.*;
 import org.openkinect.processing.*;
 
 Kinect kinect;
-boolean depth = false;
+boolean depth = true;
 boolean rgb = false;
 
 void setup() {
   size(1280,520);
   kinect = new Kinect(this);
   kinect.start();
+  kinect.enableDepthImage(depth);
+  kinect.enableRGBImage(rgb);
 }
 
 void draw() {
