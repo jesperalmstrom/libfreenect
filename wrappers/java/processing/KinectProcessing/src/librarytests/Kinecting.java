@@ -7,13 +7,16 @@ import processing.core.PApplet;
 public class Kinecting extends PApplet {
 
 	Kinect kinect;
-	boolean depth = false;
+	boolean depth = true;
 	boolean rgb = false;
-	
+
 	public void setup() {
 		size(1280,520);
 		kinect = new Kinect(this);
 		kinect.start();
+		kinect.enableDepthImage(depth);
+		kinect.enableRGBImage(rgb);
+
 	}
 
 	public void draw() {
@@ -39,7 +42,7 @@ public class Kinecting extends PApplet {
 	public static void main(String _args[]) {
 		PApplet.main(new String[] { librarytests.Kinecting.class.getName() });
 	}
-	
-	
-	
+
+
+
 }
