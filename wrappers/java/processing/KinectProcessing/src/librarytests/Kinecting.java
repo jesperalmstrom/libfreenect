@@ -14,8 +14,8 @@ public class Kinecting extends PApplet {
 		size(1280,520);
 		kinect = new Kinect(this);
 		kinect.start();
-		kinect.enableDepthImage(depth);
-		kinect.enableRGBImage(rgb);
+		kinect.enableDepth(depth);
+		kinect.enableRGB(rgb);
 
 	}
 
@@ -32,10 +32,10 @@ public class Kinecting extends PApplet {
 	public void keyPressed() {
 		if (key == 'd') {
 			depth = !depth;
-			kinect.enableDepthImage(depth);
+			kinect.enableDepth(depth);
 		} else if (key == 'r') {
 			rgb = !rgb;
-			kinect.enableRGBImage(rgb);
+			kinect.enableRGB(rgb);
 		}
 	}
 
