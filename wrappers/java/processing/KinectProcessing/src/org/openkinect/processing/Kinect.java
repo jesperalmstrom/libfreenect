@@ -100,7 +100,7 @@ public class Kinect extends Thread {
 		while (running) {
 			boolean b = context.processEvents();
 			try {
-				Thread.sleep(8);
+				Thread.sleep(2);
 			} catch (InterruptedException e) {
 				// e.printStackTrace();
 			}
