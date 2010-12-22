@@ -28,54 +28,72 @@ public class PointCloud extends PApplet {
 		// We don't need the grayscale image in this example
 		// so this makes it more efficient
 		kinect.processDepthImage(false);
-		
+
 		// Lookup table for all possible depth values (0 - 2047)
 		for (int i = 0; i < depthLookUp.length; i++) {
 			depthLookUp[i] = rawDepthToMeters(i);
 		}
 	}
 
+	boolean going = true;
+
 	public void draw() {
+		if (going) {
 
-		background(0);
-		fill(255);
-		textMode(SCREEN);
-		text("Kinect FR: " + (int)kinect.getDepthFPS() + "\nProcessing FR: " + (int)frameRate,10,16);
+			background(0);
+			fill(255);
+			textMode(SCREEN);
+			text("Kinect FR: " + (int)kinect.getDepthFPS() + "\nProcessing FR: " + (int)frameRate,10,16);
 
-		// Get the raw depth as array of integers
-		int[] depth = kinect.getRawDepth();
+			// Get the raw depth as array of integers
+			int[] depth = kinect.getRawDepth();
 
-		// We're just going to calculate and draw every 4th pixel (equivalent of 160x120)
-		int skip = 4;
+			if (depth != null) {
+				// We're just going to calculate and draw every 4th pixel (equivalent of 160x120)
+				int skip = 4;
 
-		// Translate and rotate
-		translate(width/2,height/2,-50);
-		rotateY(a);
+				// Translate and rotate
+				translate(width/2,height/2,-50);
+				rotateY(a);
 
-		for(int x=0; x<w; x+=skip) {
-			for(int y=0; y<h; y+=skip) {
-				int offset = x+y*w;
-				
-				// Convert kinect data to world xyz coordinate
-				int rawDepth = depth[offset];
-				PVector v = depthToWorld(x,y,rawDepth);
-				
-				stroke(255);
-				pushMatrix();
-				// Scale up by 200
-				float factor = 200;
-				translate(v.x*factor,v.y*factor,factor-v.z*factor);
-				// Draw a point
-				point(0,0);
-				popMatrix();
+				for(int x=0; x<w; x+=skip) {
+					for(int y=0; y<h; y+=skip) {
+						int offset = x+y*w;
 
-				
+						// Convert kinect data to world xyz coordinate
+						int rawDepth = depth[offset];
+						PVector v = depthToWorld(x,y,rawDepth);
+
+						stroke(255);
+						pushMatrix();
+						// Scale up by 200
+						float factor = 200;
+						translate(v.x*factor,v.y*factor,factor-v.z*factor);
+						// Draw a point
+						point(0,0);
+						popMatrix();
+
+
+					}
+				}
 			}
-		}
 
-		// Rotate
-		a += 0.015f;
+			// Rotate
+			a += 0.015f;
+		}
 	}
+	
+	public void mousePressed() {
+		kinect.quit();
+		going = false;
+	}
+
+
+
+	//	public void stop() {
+	//		System.out.println("Hey");
+	//		super.stop();
+	//	}
 
 	public static void main(String _args[]) {
 		PApplet.main(new String[] { librarytests.PointCloud.class.getName() });

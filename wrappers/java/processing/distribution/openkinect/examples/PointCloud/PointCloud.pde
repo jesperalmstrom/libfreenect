@@ -97,3 +97,8 @@ PVector depthToWorld(int x, int y, int depthValue) {
   return result;
 }
 
+void stop() {
+  kinect.quit();
+  super.stop();
+}
+

@@ -16,14 +16,14 @@ public class Kinect extends Thread {
 	Method kinectEventMethod;
 
 	boolean running = false;
-	
+
 	Context context;
 	Device device;
 	int w = 640;
 	int h = 480;
 	RGBImage kimg;// = new KImage();
 	DepthImage dimg;
-	
+
 	public Kinect(PApplet _p) {
 		p5parent = _p;
 		try {
@@ -36,7 +36,7 @@ public class Kinect extends Thread {
 	}
 
 	public void start() {
-		
+
 		context = Context.getContext();
 		if(context.devices() < 1)
 		{
@@ -46,18 +46,22 @@ public class Kinect extends Thread {
 		kimg = new RGBImage(p5parent);
 		dimg = new DepthImage(p5parent);
 		running = true;
-		
+
 		super.start();
 	}
-	
+
 	public int[] getRawDepth() {
 		ShortBuffer sb = dimg.getRawData();
 		// Need to do something better here
-		int[] depth = new int[sb.capacity()];
-		for (int i = 0; i < depth.length; i++) depth[i] = sb.get(i);
-		return depth;
+		if (sb != null) {
+			int[] depth = new int[sb.capacity()];
+			for (int i = 0; i < depth.length; i++) depth[i] = sb.get(i);
+			return depth;
+		} else {
+			return null;
+		}
 	}
-	
+
 	public void processDepthImage(boolean b) {
 		dimg.enableImage(b);
 	}
@@ -66,16 +70,16 @@ public class Kinect extends Thread {
 		if (b) device.depth(dimg);
 		else device.depth(null);
 	}
-	
+
 	public void enableRGB(boolean b) {
 		if (b) device.color(kimg);
 		else device.color(null);
 	}
-	
+
 	public float getRGBFPS() {
 		return kimg.getFPS();
 	}
-	
+
 	public float getDepthFPS() {
 		return dimg.getFPS();
 	}
@@ -83,25 +87,23 @@ public class Kinect extends Thread {
 	public PImage getRGBImage() {
 		return kimg.img;
 	}
-	
+
 	public PImage getDepthImage() {
 		return dimg.img;
 	}
-	
+
+
 	/**
 	 * This method should only be called internally by Thread.start().
 	 */
 	public void run() {
-
 		while (running) {
 			boolean b = context.processEvents();
 			try {
-				Thread.sleep(1);
+				Thread.sleep(8);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				// e.printStackTrace();
 			}
-			
 		}
 		/*try {
 			// call the method with this object as the argument!
@@ -118,9 +120,11 @@ public class Kinect extends Thread {
 	/* Stops the client thread.  You don't really need to do this ever.
 	 */  
 	public void quit() {
+		System.out.println("quitting");
+		device.color(null);
+		device.depth(null);
 		running = false;  // Setting running to false ends the loop in run()
-		device.dispose();
-		interrupt();      // In case the thread is waiting. . .
+		//interrupt();      // In case the thread is waiting. . .
 	}
 
 
