@@ -52,14 +52,16 @@ public class Kinect extends Thread {
 
 	public int[] getRawDepth() {
 		ShortBuffer sb = dimg.getRawData();
-		// Need to do something better here
+		
+		// This is inefficent, but I think it's easier for Processing users to have an int array?
+		int[] depth = new int[sb.capacity()];
 		if (sb != null) {
-			int[] depth = new int[sb.capacity()];
 			for (int i = 0; i < depth.length; i++) depth[i] = sb.get(i);
-			return depth;
 		} else {
-			return null;
-		}
+			// Instead of null, filling it with 0's
+			for (int i = 0; i < depth.length; i++) depth[i] = 0;
+		}		
+		return depth;
 	}
 
 	public void processDepthImage(boolean b) {
