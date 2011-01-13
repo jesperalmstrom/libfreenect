@@ -41,7 +41,7 @@ void draw() {
   // Display some info
   int t = tracker.getThreshold();
   fill(0);
-  text("threshold: " + t + "    " +  "framerate: " + (int)frameRate,10,500);
+  text("threshold: " + t + "    " +  "framerate: " + (int)frameRate + "    " + "UP increase threshold, DOWN decrease threshold",10,500);
 }
 
 void keyPressed() {
