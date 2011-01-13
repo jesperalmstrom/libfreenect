@@ -28,7 +28,7 @@
 				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
 				PBXFileTableDataSourceColumnWidthsKey = (
 					20,
-					500,
+					357,
 					20,
 					48,
 					43,
@@ -67,11 +67,22 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 314137126;
-			PBXWorkspaceStateSaveDate = 314137126;
+			PBXPerProjectTemplateStateSaveDate = 315950397;
+			PBXWorkspaceStateSaveDate = 315950397;
+		};
+		perUserProjectItems = {
+			C94B6D7412D5055D00AE6F57 /* PBXTextBookmark */ = C94B6D7412D5055D00AE6F57 /* PBXTextBookmark */;
+			C94B6D7512D5055D00AE6F57 /* PBXTextBookmark */ = C94B6D7512D5055D00AE6F57 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 89D0F2CE0F40E7A1007831A7 /* Source Control */;
 		userBuildSettings = {
+		};
+	};
+	65D3607512907E910032D2A2 /* NativeKinect.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {993, 266}}";
+			sepNavSelRange = "{165, 82}";
+			sepNavVisRange = "{137, 111}";
 		};
 	};
 	89D0F0230F392F20007831A7 /* Info.plist */ = {
@@ -147,5 +158,23 @@
 		executables = (
 			89D0F2C50F40E784007831A7 /* KinectJNI */,
 		);
+	};
+	C94B6D7412D5055D00AE6F57 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "error: shiffman_kinect_NativeKinect.h: No such file or directory";
+		fRef = 65D3607512907E910032D2A2 /* NativeKinect.cpp */;
+		rLen = 1;
+		rLoc = 11;
+		rType = 1;
+	};
+	C94B6D7512D5055D00AE6F57 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 65D3607512907E910032D2A2 /* NativeKinect.cpp */;
+		name = "NativeKinect.cpp: 12";
+		rLen = 82;
+		rLoc = 165;
+		rType = 0;
+		vrLen = 361;
+		vrLoc = 0;
 	};
 }

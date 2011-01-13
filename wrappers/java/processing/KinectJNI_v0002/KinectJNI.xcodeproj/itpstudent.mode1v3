@@ -257,7 +257,7 @@
 						<dict>
 							<key>PBXSmartGroupTreeModuleColumnWidthsKey</key>
 							<array>
-								<real>186</real>
+								<real>329</real>
 							</array>
 							<key>PBXSmartGroupTreeModuleColumnsKey_v4</key>
 							<array>
@@ -282,7 +282,7 @@
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 0}, {186, 577}}</string>
+							<string>{{0, 0}, {329, 577}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -294,11 +294,11 @@
 					<key>GeometryConfiguration</key>
 					<dict>
 						<key>Frame</key>
-						<string>{{0, 0}, {203, 595}}</string>
+						<string>{{0, 0}, {346, 595}}</string>
 						<key>GroupTreeTableConfiguration</key>
 						<array>
 							<string>MainColumn</string>
-							<real>186</real>
+							<real>329</real>
 						</array>
 						<key>RubberWindowFrame</key>
 						<string>566 410 947 636 0 0 1920 1178 </string>
@@ -306,7 +306,7 @@
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
 					<key>Proportion</key>
-					<string>203pt</string>
+					<string>346pt</string>
 				</dict>
 				<dict>
 					<key>Dock</key>
@@ -317,7 +317,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>MyNewFile14.java</string>
+								<string>NativeKinect.cpp</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -325,7 +325,15 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>MyNewFile14.java</string>
+										<string>NativeKinect.cpp</string>
+										<key>_historyCapacity</key>
+										<integer>0</integer>
+										<key>bookmark</key>
+										<string>C94B6D7512D5055D00AE6F57</string>
+										<key>history</key>
+										<array>
+											<string>C94B6D7412D5055D00AE6F57</string>
+										</array>
 									</dict>
 									<key>SplitCount</key>
 									<string>1</string>
@@ -336,7 +344,7 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {739, 417}}</string>
+								<string>{{0, 0}, {596, 417}}</string>
 								<key>RubberWindowFrame</key>
 								<string>566 410 947 636 0 0 1920 1178 </string>
 							</dict>
@@ -356,7 +364,7 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 422}, {739, 173}}</string>
+								<string>{{0, 422}, {596, 173}}</string>
 								<key>RubberWindowFrame</key>
 								<string>566 410 947 636 0 0 1920 1178 </string>
 							</dict>
@@ -367,7 +375,7 @@
 						</dict>
 					</array>
 					<key>Proportion</key>
-					<string>739pt</string>
+					<string>596pt</string>
 				</dict>
 			</array>
 			<key>Name</key>
@@ -382,9 +390,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>C92E5B2A12B95A3F00817239</string>
+				<string>C94B6D7612D5055D00AE6F57</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>C92E5B2B12B95A3F00817239</string>
+				<string>C94B6D7712D5055D00AE6F57</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -518,10 +526,8 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>1C78EAAD065D492600B07095</string>
-		<string>1CD10A99069EF8BA00B06720</string>
 		<string>C92E5B2D12B95A3F00817239</string>
-		<string>/Users/itpstudent/Dropbox/kinect/KinectJNI_v0001/KinectJNI.xcodeproj</string>
+		<string>/Users/itpstudent/Dropbox/kinect/github/shiffman.libfreenect/libfreenect/wrappers/java/processing/KinectJNI_v0002/KinectJNI.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
 	<string>566 410 947 636 0 0 1920 1178 </string>
@@ -545,7 +551,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string></string>
+								<string>NativeKinect.cpp</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -603,7 +609,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>C92E5B2D12B95A3F00817239</string>
-				<string>C92E5B2E12B95A3F00817239</string>
+				<string>C94B6D7312D5054E00AE6F57</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>

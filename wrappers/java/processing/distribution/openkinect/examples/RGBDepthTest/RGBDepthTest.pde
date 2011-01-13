@@ -4,6 +4,7 @@ import org.openkinect.processing.*;
 Kinect kinect;
 boolean depth = true;
 boolean rgb = false;
+boolean ir = false;
 
 void setup() {
   size(1280,520);
@@ -11,16 +12,18 @@ void setup() {
   kinect.start();
   kinect.enableDepth(depth);
   kinect.enableRGB(rgb);
+  kinect.enableIR(ir);
 }
 
 void draw() {
   background(0);
-  image(kinect.getRGBImage(),0,0);
+
+  image(kinect.getVideoImage(),0,0);
   image(kinect.getDepthImage(),640,0);
   fill(255);
-  text("RGB FPS: " + kinect.getRGBFPS(),10,495);
+  text("RGB/IR FPS: " + kinect.getVideoFPS(),10,495);
   text("DEPTH FPS: " + kinect.getDepthFPS(),640,495);
-  text("Press 'd' to enable/disable depth    Press 'r' to enable/disable rgb image    Framerate: " + frameRate,10,515);
+  text("Press 'd' to enable/disable depth    Press 'r' to enable/disable rgb image   Press 'i' to enable/disable IR image  Framerate: " + frameRate,10,515);
 }
 
 void keyPressed() {
@@ -30,7 +33,13 @@ void keyPressed() {
   } 
   else if (key == 'r') {
     rgb = !rgb;
+    if (rgb) ir = false;
     kinect.enableRGB(rgb);
+  }
+  else if (key == 'i') {
+    ir = !ir;
+    if (ir) rgb = false;
+    kinect.enableIR(ir);
   }
 }
 
@@ -38,5 +47,4 @@ void stop() {
   kinect.quit();
   super.stop();
 }
-
 

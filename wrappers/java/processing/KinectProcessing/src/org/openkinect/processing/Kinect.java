@@ -12,7 +12,7 @@ import processing.core.PImage;
 
 public class Kinect extends Thread {
 
-	PApplet p5parent;
+	public static PApplet p5parent;
 	Method kinectEventMethod;
 
 	boolean running = false;
@@ -52,11 +52,16 @@ public class Kinect extends Thread {
 
 	public int[] getRawDepth() {
 		ShortBuffer sb = dimg.getRawData();
+		//int[] depth = new int[sb.capacity()];
+		int[] depth = new int[w*h];
 		
 		// This is inefficent, but I think it's easier for Processing users to have an int array?
-		int[] depth = new int[sb.capacity()];
 		if (sb != null) {
-			for (int i = 0; i < depth.length; i++) depth[i] = sb.get(i);
+			for (int i = 0; i < depth.length; i++) {
+				depth[i] = sb.get(i);
+				//System.out.println(sb.get(i));
+
+			}
 		} else {
 			// Instead of null, filling it with 0's
 			for (int i = 0; i < depth.length; i++) depth[i] = 0;
@@ -67,18 +72,27 @@ public class Kinect extends Thread {
 	public void processDepthImage(boolean b) {
 		dimg.enableImage(b);
 	}
-
+	
 	public void enableDepth(boolean b) {
 		if (b) device.depth(dimg);
 		else device.depth(null);
 	}
 
 	public void enableRGB(boolean b) {
+		device.color(null);
+		kimg.setIR(!b);
 		if (b) device.color(kimg);
-		else device.color(null);
+		//else device.color(null);
+	}
+	
+	public void enableIR(boolean b) {
+		device.color(null);
+		kimg.setIR(b);
+		if (b) device.color(kimg,true);
+		//else device.color(null);
 	}
 
-	public float getRGBFPS() {
+	public float getVideoFPS() {
 		return kimg.getFPS();
 	}
 
@@ -86,7 +100,7 @@ public class Kinect extends Thread {
 		return dimg.getFPS();
 	}
 
-	public PImage getRGBImage() {
+	public PImage getVideoImage() {
 		return kimg.img;
 	}
 
