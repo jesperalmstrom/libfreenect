@@ -14,6 +14,7 @@ boolean ir = false;
 float deg = 15; // Start at 15 degrees
 
 void setup() {
+  size(1280,520);
   kinect = new Kinect(this);
   kinect.start();
   kinect.enableDepth(depth);
@@ -21,7 +22,7 @@ void setup() {
   kinect.enableIR(ir);
   kinect.tilt(deg);
 }
-  }
+
 
 void draw() {
   background(0);
