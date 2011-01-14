@@ -23,8 +23,6 @@ public class Kinecting extends PApplet {
 		kinect.tilt(deg);
 	}
 
-	int a = 0;
-
 	public void draw() {
 		background(0);
 

@@ -14,13 +14,14 @@ boolean ir = false;
 float deg = 15; // Start at 15 degrees
 
 void setup() {
-  size(1280,520);
   kinect = new Kinect(this);
   kinect.start();
   kinect.enableDepth(depth);
   kinect.enableRGB(rgb);
   kinect.enableIR(ir);
+  kinect.tilt(deg);
 }
+  }
 
 void draw() {
   background(0);
@@ -31,12 +32,6 @@ void draw() {
   text("RGB/IR FPS: " + (int) kinect.getVideoFPS() + "        Camera tilt: " + (int)deg + " degrees",10,495);
   text("DEPTH FPS: " + (int) kinect.getDepthFPS(),640,495);
   text("Press 'd' to enable/disable depth    Press 'r' to enable/disable rgb image   Press 'i' to enable/disable IR image  UP and DOWN to tilt camera   Framerate: " + frameRate,10,515);
-}
-
-void mousePressed() {
-  deg = map(mouseY,0,height,30,0);
-  println("Tilting to: "+ deg + " degrees.");
-  kinect.tilt(deg);
 }
 
 void keyPressed() {
