@@ -54,7 +54,7 @@ public class Kinect extends Thread {
 		ShortBuffer sb = dimg.getRawData();
 		//int[] depth = new int[sb.capacity()];
 		int[] depth = new int[w*h];
-		
+
 		// This is inefficent, but I think it's easier for Processing users to have an int array?
 		if (sb != null) {
 			for (int i = 0; i < depth.length; i++) {
@@ -69,10 +69,15 @@ public class Kinect extends Thread {
 		return depth;
 	}
 
+	public void tilt(float deg)
+	{
+		device.tilt(deg);
+	}
+
 	public void processDepthImage(boolean b) {
 		dimg.enableImage(b);
 	}
-	
+
 	public void enableDepth(boolean b) {
 		if (b) device.depth(dimg);
 		else device.depth(null);
@@ -84,7 +89,7 @@ public class Kinect extends Thread {
 		if (b) device.color(kimg);
 		//else device.color(null);
 	}
-	
+
 	public void enableIR(boolean b) {
 		device.color(null);
 		kimg.setIR(b);
@@ -102,6 +107,7 @@ public class Kinect extends Thread {
 
 	public PImage getVideoImage() {
 		return kimg.img;
+		//return kimg.imgCopy;
 	}
 
 	public PImage getDepthImage() {

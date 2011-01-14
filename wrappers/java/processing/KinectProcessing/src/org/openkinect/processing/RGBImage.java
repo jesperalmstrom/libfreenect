@@ -6,9 +6,11 @@ import java.nio.ShortBuffer;
 
 
 import processing.core.PApplet;
+import processing.core.PImage;
 
 public class RGBImage extends DepthImage {
 	boolean IR = false;
+	
 
 	public RGBImage(PApplet p) {
 		super(p);
@@ -19,7 +21,6 @@ public class RGBImage extends DepthImage {
 	}
 
 	public synchronized void data(ByteBuffer data) {
-
 		if (IR) {
 			ShortBuffer sdata = data.asShortBuffer();
 			for(int y=0; y<img.height; y++) {
@@ -52,6 +53,7 @@ public class RGBImage extends DepthImage {
 			}
 		}
 
+		
 		img.updatePixels();
 
 		long now = System.currentTimeMillis();
