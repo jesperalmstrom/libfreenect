@@ -30,7 +30,7 @@ void draw() {
   fill(255);
   text("RGB/IR FPS: " + (int) kinect.getVideoFPS() + "        Camera tilt: " + (int)deg + " degrees",10,495);
   text("DEPTH FPS: " + (int) kinect.getDepthFPS(),640,495);
-  text("Press 'd' to enable/disable depth    Press 'r' to enable/disable rgb image   Press 'i' to enable/disable IR image  Click mouse to tilt camera (yaxis)   Framerate: " + frameRate,10,515);
+  text("Press 'd' to enable/disable depth    Press 'r' to enable/disable rgb image   Press 'i' to enable/disable IR image  UP and DOWN to tilt camera   Framerate: " + frameRate,10,515);
 }
 
 void mousePressed() {
@@ -53,9 +53,18 @@ void keyPressed() {
     ir = !ir;
     if (ir) rgb = false;
     kinect.enableIR(ir);
+  } 
+  else if (key == CODED) {
+    if (keyCode == UP) {
+      deg++;
+    } 
+    else if (keyCode == DOWN) {
+      deg--;
+    }
+    deg = constrain(deg,0,30);
+    kinect.tilt(deg);
   }
 }
-
 void stop() {
   kinect.quit();
   super.stop();

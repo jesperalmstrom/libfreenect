@@ -33,14 +33,7 @@ public class Kinecting extends PApplet {
 		fill(255);
 		text("RGB/IR FPS: " + (int) kinect.getVideoFPS() + "        Camera tilt: " + (int)deg + " degrees",10,495);
 		text("DEPTH FPS: " + (int) kinect.getDepthFPS(),640,495);
-		text("Press 'd' to enable/disable depth    Press 'r' to enable/disable rgb image   Press 'i' to enable/disable IR image  Click mouse to tilt camera (yaxis)   Framerate: " + frameRate,10,515);
-	}
-
-	public void mousePressed() {
-		deg = map(mouseY,0,height,30,0);
-		println("Tilting to: "+ deg + " degrees.");
-		kinect.tilt(deg);
-	
+		text("Press 'd' to enable/disable depth    Press 'r' to enable/disable rgb image   Press 'i' to enable/disable IR image  UP and DOWN to tilt camera   Framerate: " + frameRate,10,515);
 	}
 
 	public void keyPressed() {
@@ -57,6 +50,14 @@ public class Kinecting extends PApplet {
 			ir = !ir;
 			if (ir) rgb = false;
 			kinect.enableIR(ir);
+		} else if (key == CODED) {
+			if (keyCode == UP) {
+				deg++;
+			} else if (keyCode == DOWN) {
+				deg--;
+			}
+			deg = constrain(deg,0,30);
+			kinect.tilt(deg);
 		}
 	}
 
