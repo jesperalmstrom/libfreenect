@@ -36,17 +36,19 @@ public class Kinect extends Thread {
 	}
 
 	public void start() {
-
+		start(0);
+	}
+	
+	public void start(int num) {
 		context = Context.getContext();
 		if(context.devices() < 1)
 		{
 			System.out.println("No Kinect devices found.");
 		}
-		device = context.getDevice(0);
+		device = context.getDevice(num);
 		kimg = new RGBImage(p5parent);
 		dimg = new DepthImage(p5parent);
 		running = true;
-
 		super.start();
 	}
 
